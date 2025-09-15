@@ -5,20 +5,22 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 transition-all duration-300",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 transition-all duration-300 font-inter",
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary-light hover:shadow-medical hover:scale-105 active:scale-95",
-        medical: "bg-gradient-primary text-primary-foreground hover:shadow-medical hover:scale-105 active:scale-95 border-0",
-        success: "bg-success text-success-foreground hover:bg-success/90 hover:shadow-trust hover:scale-105 active:scale-95",
-        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90 hover:scale-105 active:scale-95",
-        outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground hover:border-primary/20",
-        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80 hover:shadow-soft",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
-        hero: "bg-gradient-primary text-primary-foreground hover:shadow-medical hover:scale-105 active:scale-95 font-semibold",
-        qr: "bg-background border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground hover:shadow-medical hover:scale-105 active:scale-95",
+        default: "bg-gradient-primary text-primary-foreground hover:shadow-glow hover:scale-105 active:scale-95 font-medium",
+        glass: "bg-gradient-glass backdrop-blur-glass border border-glass-border text-foreground hover:bg-card-glass hover:shadow-glass hover:scale-105 active:scale-95",
+        medical: "bg-gradient-primary text-primary-foreground hover:shadow-glow hover:scale-105 active:scale-95 border-0 font-medium",
+        success: "bg-gradient-success text-success-foreground hover:shadow-medium hover:scale-105 active:scale-95 font-medium",
+        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90 hover:shadow-medium hover:scale-105 active:scale-95",
+        outline: "border-2 border-primary/20 bg-background/80 backdrop-blur-xs text-foreground hover:bg-accent hover:border-primary/40 hover:shadow-soft hover:scale-105",
+        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary-dark hover:shadow-soft hover:scale-105",
+        ghost: "hover:bg-accent/50 hover:text-accent-foreground hover:backdrop-blur-xs transition-all duration-200",
+        link: "text-primary underline-offset-4 hover:underline hover:text-primary-light",
+        hero: "bg-gradient-primary text-primary-foreground hover:shadow-glow hover:scale-110 active:scale-95 font-semibold text-base relative overflow-hidden before:absolute before:inset-0 before:bg-shimmer before:animate-shimmer",
+        qr: "bg-background/80 backdrop-blur-xs border-2 border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground hover:shadow-glow hover:scale-105 active:scale-95 font-medium",
+        teal: "bg-teal text-white hover:bg-teal-light hover:shadow-teal-glow hover:scale-105 active:scale-95 font-medium",
       },
       size: {
         default: "h-10 px-4 py-2",

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
-import { HeroSection } from "@/components/landing/HeroSection";
+import { ModernHeroSection } from "@/components/landing/ModernHeroSection";
 import { AuthModal } from "@/components/auth/AuthModal";
 
 const Index = () => {
@@ -25,7 +25,7 @@ const Index = () => {
 
   return (
     <>
-      <HeroSection onGetStarted={handleGetStarted} />
+      <ModernHeroSection onGetStarted={handleGetStarted} />
       <AuthModal isOpen={showAuthModal} onClose={handleCloseAuth} />
     </>
   );

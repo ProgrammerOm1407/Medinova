@@ -4,14 +4,17 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const cardVariants = cva(
-  "rounded-lg border bg-card text-card-foreground transition-all duration-300",
+  "rounded-2xl border bg-card text-card-foreground transition-all duration-300",
   {
     variants: {
       variant: {
-        default: "shadow-soft hover:shadow-medical",
-        medical: "shadow-medical border-primary/10 bg-gradient-secondary",
-        interactive: "shadow-soft hover:shadow-medical hover:scale-[1.02] cursor-pointer",
-        trust: "shadow-trust border-success/20",
+        default: "shadow-glass border-glass-border/50 hover:shadow-medium",
+        glass: "bg-gradient-glass backdrop-blur-glass border-glass-border shadow-glass",
+        medical: "shadow-medium border-primary/10 bg-gradient-secondary",
+        interactive: "shadow-glass border-glass-border/50 hover:shadow-large hover:scale-[1.02] cursor-pointer hover:border-primary/20 transition-all duration-300",
+        trust: "shadow-medium border-success/20 bg-success-glow/20",
+        glow: "shadow-glow border-primary/20 bg-gradient-glass backdrop-blur-glass",
+        float: "shadow-large hover:shadow-glow hover:-translate-y-1 transition-all duration-300",
       },
     },
     defaultVariants: {

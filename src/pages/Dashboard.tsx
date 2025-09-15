@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
-import { PatientDashboard } from "@/components/patient/PatientDashboard";
+import { ModernPatientDashboard } from "@/components/patient/ModernPatientDashboard";
 import { Button } from "@/components/ui/button";
 import { LogOut, User } from "lucide-react";
 
@@ -27,7 +27,7 @@ const Dashboard = () => {
   const renderDashboardByRole = () => {
     switch (user.role) {
       case 'patient':
-        return <PatientDashboard />;
+        return <ModernPatientDashboard />;
       case 'doctor':
         return (
           <div className="min-h-screen bg-background p-8">
@@ -61,25 +61,30 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gradient-secondary relative overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-gradient-glow opacity-20" />
+      
       {/* Top Navigation */}
-      <nav className="border-b bg-card shadow-soft">
+      <nav className="relative z-10 bg-gradient-glass backdrop-blur-glass border-b border-glass-border shadow-glass">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center space-x-4">
-              <h1 className="text-xl font-bold text-primary">Digital Health Locker</h1>
-              <span className="text-sm text-muted-foreground capitalize">
+          <div className="flex justify-between items-center h-20">
+            <div className="flex items-center space-x-6">
+              <h1 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent font-inter">
+                Digital Health Locker
+              </h1>
+              <span className="px-3 py-1 rounded-full bg-primary-glow text-primary text-sm font-medium capitalize border border-primary/20">
                 {user.role} Portal
               </span>
             </div>
             
-            <div className="flex items-center space-x-4">
-              <div className="flex items-center space-x-2 text-sm">
-                <User className="h-4 w-4" />
-                <span>{user.name}</span>
+            <div className="flex items-center space-x-6">
+              <div className="flex items-center space-x-3 px-4 py-2 rounded-xl bg-glass backdrop-blur-xs border border-glass-border">
+                <User className="h-5 w-5 text-primary" />
+                <span className="font-medium font-inter">{user.name}</span>
               </div>
               
-              <Button variant="ghost" size="sm" onClick={handleLogout}>
+              <Button variant="glass" size="sm" onClick={handleLogout} className="hover:shadow-medium">
                 <LogOut className="h-4 w-4 mr-2" />
                 Logout
               </Button>
@@ -89,7 +94,9 @@ const Dashboard = () => {
       </nav>
 
       {/* Main Dashboard Content */}
-      {renderDashboardByRole()}
+      <div className="relative z-10">
+        {renderDashboardByRole()}
+      </div>
     </div>
   );
 };
