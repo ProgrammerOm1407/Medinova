@@ -1,13 +1,33 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "@/contexts/AuthContext";
+import { HeroSection } from "@/components/landing/HeroSection";
+import { AuthModal } from "@/components/auth/AuthModal";
 
 const Index = () => {
+  const [showAuthModal, setShowAuthModal] = useState(false);
+  const { user } = useAuth();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (user) {
+      navigate("/dashboard");
+    }
+  }, [user, navigate]);
+
+  const handleGetStarted = () => {
+    setShowAuthModal(true);
+  };
+
+  const handleCloseAuth = () => {
+    setShowAuthModal(false);
+  };
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <>
+      <HeroSection onGetStarted={handleGetStarted} />
+      <AuthModal isOpen={showAuthModal} onClose={handleCloseAuth} />
+    </>
   );
 };
 

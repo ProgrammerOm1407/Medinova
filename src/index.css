@@ -2,39 +2,64 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* Digital Health Locker Design System - Healthcare focused with calming colors
+All colors MUST be HSL for consistency and theming support.
 */
 
 @layer base {
   :root {
+    /* Core Healthcare Palette */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
+    --foreground: 215 25% 27%;
+    
+    /* Medical Blue Theme */
+    --primary: 214 84% 56%;        /* #4D8BEB - Main medical blue */
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 214 84% 70%;   /* Lighter shade for hover states */
+    --primary-glow: 214 84% 85%;    /* Very light for backgrounds */
+    
+    /* Healthcare Secondary Colors */
+    --secondary: 214 32% 95%;       /* #E6F0F8 - Light blue background */
+    --secondary-foreground: 215 25% 27%;
+    
+    /* Trust & Safety Colors */
+    --success: 142 71% 45%;         /* Medical green for positive actions */
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;          /* Medical amber for cautions */
+    --warning-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;       /* Medical red for critical actions */
+    --destructive-foreground: 0 0% 100%;
+    
+    /* UI Elements */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
+    --card-foreground: 215 25% 27%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --popover-foreground: 215 25% 27%;
+    
+    /* Neutral Tones */
+    --muted: 214 32% 95%;           /* Light backgrounds */
+    --muted-foreground: 215 16% 47%;
+    --accent: 214 32% 91%;          /* Subtle highlights */
+    --accent-foreground: 215 25% 27%;
+    
+    /* Borders & Inputs */
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 214 84% 56%;
+    
+    /* Healthcare Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(214 84% 56%), hsl(214 84% 70%));
+    --gradient-secondary: linear-gradient(180deg, hsl(0 0% 100%), hsl(214 32% 95%));
+    --gradient-success: linear-gradient(135deg, hsl(142 71% 45%), hsl(142 71% 55%));
+    
+    /* Healthcare Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(214 84% 56% / 0.1);
+    --shadow-medical: 0 8px 30px -8px hsl(214 84% 56% / 0.15);
+    --shadow-trust: 0 2px 10px -2px hsl(142 71% 45% / 0.1);
+    
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
     --radius: 0.5rem;
 
